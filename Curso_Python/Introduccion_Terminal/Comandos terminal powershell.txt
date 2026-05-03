@@ -1,0 +1,37 @@
+COMANDOS PARA WINDOWS (POWERSHELL)
+Estos comandos están pensados para usarse en Windows con PowerShell.
+
+
+ENTORNOS VIRTUALES Y PYTHON (WINDOWS)
+
+ - python -m venv venv --> Crea un entorno virtual de Python llamado "venv".
+ - source venv/bin/actívate --> Activa el entorno virtual en Windows.
+ - deactivate --> Desactiva el entorno virtual en Windows.
+ - pip install -r requirements.txt --> Instala todas las dependencias indicadas en el archivo requirements.txt.
+ - pip freeze > requirements.txt --> Guarda en requirements.txt todas las librerías instaladas y sus versiones.
+
+
+COMANDOS BÁSICOS DE TERMINAL EN WINDOWS (POWERSHELL) 
+
+ - cd ~ --> Accede al directorio personal del usuario.
+ - cd .. --> Sube un nivel en la estructura de carpetas.
+ - dir o ls --> Muestra los archivos y carpetas del directorio actual.
+ - mkdir nombrecarpeta --> Crea una nueva carpeta.
+ - mkdir nom1, nom2, nom3 --> Crea varias carpetas.
+ - New-Item archivo.txt --> Crea un archivo vacío.
+ - cp notas.txt backup_notas.txt --> Copia un archivo con otro nombre.
+ - mv backup_notas.txt output/ --> Mueve un archivo a otra carpeta.
+ - echo "Hola terminal" > archivo.txt --> Escribe texto dentro de un archivo (sobrescribe el contenido).
+ - echo "Estoy aprendiendo a moverme" >> saludo.txt --> Añade el texto al final del archivo saludo.txt sin borrar el contenido anterior.
+ - cat archivo.txt --> Muestra el contenido de un archivo por pantalla.
+ - Get-Content archivo.txt | more --> Muestra el contenido del archivo de forma paginada.
+ - rm --> Elimina un archivo.
+ - ls *.txt --> Listar archivos con extensión .txt de manera simple
+ - ls -name *.txt --> Listar Lista los archivos con extensión .txt en el directorio actual y en todas sus subcarpetas.
+ - ls -name archivo.txt --> Busca y lista el archivo llamado archivo.txt en el directorio actual y en todas sus subcarpetas.
+ - tree --> Muestra la estructura de carpetas del directorio actual en forma de árbol.
+ - tree /F --> Muestra la estructura de carpetas y todos los archivos dentro de cada carpeta.
+ - tree /A --> Muestra el árbol usando caracteres ASCII, útil si la terminal no soporta caracteres especiales.
+
+ - python3 ./archivo.py
+   python ./archivo.py --> Ambos ejecuta el script de Python pero solo si el intérprete de Python activo.
