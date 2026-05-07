@@ -10,6 +10,9 @@ Convertir los datos leidos en estructura de datos(dataset) utilizando la libreri
 Utilizar print() para mostrar los datos del dataset.
 
 #### Paso 4: Definir una regla de decisión
+Reglas:
+1- Si vende menos que la media → promocionar
+2- Si vende más que la media → mantener 
 
 #### Paso 5: Crear la lógica del agente
 #### Paso 6: Aplicar el agente a todos los datos
