@@ -35,9 +35,18 @@ set_frutas = set(lista_frutas) #Print: {'manzana', 'banana', 'uva'}
 
 ## Diccionarios  
 Estructuras clave‑valor que permiten representar datos de forma clara y acceder a la información de manera rápida. 
+Son mutables, o sea que se permite (adicionar, modificar o eliminar).
 Son ideales para modelar entidades del mundo real.
 
 Ejemplo:
-persona = {"nombre": "Ana", "edad": 25}
+persona = {
+    "nombre": "Ana",
+    "edad": 25
+}
+
+persona["ciudad"] = "Madrid" # Crear un nuevo elemento
+persona["edad"] = 26 # Modificar un valor existente
+del persona["nombre"] # Eliminar un elemento
+
 
 # NOTA: Cada estructura tiene su propósito. Elegir la adecuada según el contexto es clave para resolver problemas de forma eficiente.
