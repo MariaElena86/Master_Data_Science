@@ -15,6 +15,19 @@ Ejemplo:
 - Eliminar elemento (por índice)
     lista_frutas.pop(2) # Elimina "uvas"
 
+## List Comprehension:
+- Es una forma corta y eficiente de crear listas utilizando una sola línea de código.
+- Permite recorrer elementos, aplicar operaciones y añadir condiciones de manera más limpia y legible que un bucle tradicional.
+
+- Sintaxis:
+#### [nueva_expresion for elemento in iterable if condicion]
+
+Ejemplo:
+cuadrados = [x**2 for x in range(5)]
+
+Resultado:
+[0, 1, 4, 9, 16]
+
 ## Tuplas  
 Similares a las listas, pero inmutables, lo que significa que sus elementos no pueden modificarse después de ser creadas. 
 Son ideales para datos que deben permanecer constantes.
