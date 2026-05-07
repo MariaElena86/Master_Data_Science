@@ -43,10 +43,9 @@ persona = {
     "nombre": "Ana",
     "edad": 25
 }
-
-persona["ciudad"] = "Madrid" # Crear un nuevo elemento
-persona["edad"] = 26 # Modificar un valor existente
-del persona["nombre"] # Eliminar un elemento
+- Crear un nuevo elemento: persona["ciudad"] = "Madrid" 
+- Modificar un valor existente: persona["edad"] = 26
+- Eliminar un elemento: del persona["nombre"]
 
 
 # NOTA: Cada estructura tiene su propósito. Elegir la adecuada según el contexto es clave para resolver problemas de forma eficiente.
