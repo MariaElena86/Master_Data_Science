@@ -33,7 +33,6 @@ numeros = {1, 2, 3, 3, 4} # Print: {1, 2, 3, 4}
 lista_frutas = ["manzana", "banana", "uva", "manzana"]
 set_frutas = set(lista_frutas) #Print: {'manzana', 'banana', 'uva'}
 
-
 ## Diccionarios  
 Estructuras clave‑valor que permiten representar datos de forma clara y acceder a la información de manera rápida. 
 Son ideales para modelar entidades del mundo real.
