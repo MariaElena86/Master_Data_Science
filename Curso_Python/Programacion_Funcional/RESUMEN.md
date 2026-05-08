@@ -1,10 +1,8 @@
 # lambda → función anónima
 ### Es una función corta escrita en una sola línea
-### La expresión se evalúa y se retorna automáticamente.
-### ✔ No necesita nombre
-### ✔ Se escribe en una sola línea
-### ✔ Retorna automáticamente el resultado
-### ✔ Muy usada con map(), filter() y reduce()
+### La expresión se evalúa y retorna el resultado automáticamente.
+### No necesita nombre
+### Muy usada con map(), filter() y reduce()
 
 
 ## Sintaxis: lambda parametros: expresion
