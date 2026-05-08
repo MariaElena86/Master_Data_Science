@@ -80,7 +80,8 @@ print(listav2)
   - x   → elemento actual
 
 ## NOTA: 
-### Cuando NO se proporciona un valor inicial, reduce() usa automáticamente el primer elemento del iterable como acumulador inicial (acc).
+- Cuando NO se proporciona un valor inicial, reduce() usa automáticamente el primer elemento del iterable como acumulador inicial (acc).
+- Cuando se define acc, se usa reduce(fn, iterable, 0)
 
 ``` python
 from functools import reduce
