@@ -100,3 +100,43 @@ print(resultado)
 - paso 3: acc = 6,  x = 4  → 6 + 4 = 10
 - paso 4: acc = 10, x = 5  → 10 + 5 = 15
 - Resultado final: 15
+
+
+# ----------------------------------------------------------------
+
+# `sorted()` permite ordenar una colección sin modificar la original.
+ `sorted(..., key=...)` y ranking
+
+- Cuando usamos `key=...`, podemos decidir por qué criterio ordenar. 
+- Si devolvemos una tupla en `key`, podemos combinar varios criterios a la vez.
+  - Recorre cada elemento
+  - Ejecuta la función key para obtener los criterios para ordenar
+  - Ordenar usando ese criterio:
+     - por defecto ordena de menor a mayor(ASC), pero con(- delante) ordena de mayor a menor(DESC)
+     - ejmplo: -average(student["grades"]) == -9.5
+  - La función key: NO modifica los datos, solo genera el “criterio de ordenación”
+
+```python
+# Ejemplo: Ordenar una lista por Average(DESC) y Ausencias(ASC)
+ranked_students = sorted(
+    students,
+    key=lambda student: (-average(student["grades"]), student["absences"]),
+)
+# Lambda fn:
+# student ->  parametro que recibe
+# retorna una tupla  ->  (-average(student["grades"]), student["absences"]) = (-9.5, 1)
+```
+
+# ----------------------------------------------------------------
+
+# Sustituir `map()` y `filter()`, utilizando list comprehensions + `any()` / `all()`
+
+En Python real, muchas veces `map` y `filter` se sustituyen por list comprehensions + any/all porque resultan más legibles.
+
+- `any(iterable)` devuelve `True` si al menos un elemento cumple la condición.
+- `all(iterable)` devuelve `True` si todos los elementos cumplen la condición.
+
+```python
+has_many_absences = any(student["absences"] > 3 for student in students)
+all_passing = all(average(student["grades"]) >= 6 for student in students)
+```
