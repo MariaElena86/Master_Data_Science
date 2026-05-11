@@ -37,7 +37,8 @@ df.shape
 
 
 ## Operaciones y Manipulación de Datos
-### Leer archivos: Carga y Exploración Inicial
+### Leer y guardar archivos: 
+- Carga y Exploración Inicial
 ````python
 #Leer CSV
 pd.read_csv("archivo.csv")
@@ -45,9 +46,11 @@ pd.read_csv("archivo.csv")
 pd.read_json("archivo.json")
 #Leer Excel: se necesita instalar esta libreria pip install openpyxl
 pd.read_excel("archivo.xlsx") 
-#
-
+# Guardar CSV
+df.to_csv("resultado.csv")
 ````
+
+
 - Métodos de inspección rápida para entender la composición y estadísticas básicas del dataset:
 ````python
 df = pd.DataFrame({
@@ -123,3 +126,22 @@ resumen = df.groupby("Departamento")["Salario"].agg([
     "count"
 ])
 ````
+
+## Ordenar datos
+
+````python
+# Ascendente
+df.sort_values(by='A')
+
+# Descendente
+df.sort_values(by='A', ascending=False)
+
+# Varias columnas
+df.sort_values(
+    by=['A','B'],
+    ascending=[False, True]
+)
+````
+
+
+
