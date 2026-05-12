@@ -1,0 +1,199 @@
+5. Instalación base
+Inicializar proyecto
+npm init -y
+Instalar Cypress
+npm install cypress --save-dev
+Instalar BDD
+npm install @badeball/cypress-cucumber-preprocessor --save-dev
+6. Primer Feature BDD
+login.feature
+Feature: Login
+
+Scenario: Successful login
+  Given user navigates to login page
+  When user enters valid credentials
+  Then user should see dashboard
+7. Step Definitions
+Given('user navigates to login page', () => {
+  cy.visit('/login')
+})
+
+When('user enters valid credentials', () => {
+  cy.get('#email').type('test@test.com')
+  cy.get('#password').type('123456')
+  cy.get('button').click()
+})
+
+Then('user should see dashboard', () => {
+  cy.contains('Dashboard').should('be.visible')
+})
+8. Generar reportes JSON
+
+Instala Mochawesome:
+
+npm install mochawesome --save-dev
+
+Esto genera:
+
+{
+  "test": "Successful login",
+  "status": "passed",
+  "duration": 3400,
+  "browser": "chrome",
+  "feature": "login",
+  "timestamp": "2026-05-12"
+}
+9. ¿Qué analizar con Pandas?
+
+Aquí empieza la parte potente.
+
+10. Limpieza de datos
+Ejemplo
+import pandas as pd
+
+df = pd.read_json("results.json")
+
+print(df.head())
+Eliminar datos corruptos
+df = df.dropna()
+Crear nuevas métricas
+df["failed"] = df["status"] == "failed"
+11. Análisis de calidad
+A. Probabilidad de fallo
+failure_rate = (
+    df["failed"].mean() * 100
+)
+
+print(f"Failure rate: {failure_rate}%")
+¿Qué significa?
+
+Si ejecutaste:
+
+100 tests
+20 fallaron
+
+Entonces:
+
+Probabilidad histórica de fallo = 20%
+12. Análisis por feature
+feature_analysis = (
+    df.groupby("feature")["failed"]
+    .mean() * 100
+)
+
+print(feature_analysis)
+
+Resultado:
+
+login      5%
+checkout   35%
+payment    42%
+Interpretación
+
+👉 payment es la zona más inestable del sistema.
+
+13. Detección de flaky tests
+¿Qué es un flaky test?
+
+Un test que:
+
+a veces pasa
+a veces falla
+sin cambios reales
+Detectarlo
+flaky = df.groupby("test")["status"].nunique() > 1
+
+print(flaky)
+14. Análisis temporal
+df["timestamp"] = pd.to_datetime(df["timestamp"])
+
+daily_failures = (
+    df.groupby(df["timestamp"].dt.date)["failed"]
+    .sum()
+)
+
+Esto ayuda a detectar:
+
+releases problemáticos
+builds inestables
+regresiones
+15. Predicción de fallos (explicado simple)
+
+Aquí está la parte más importante.
+
+¿Qué queremos predecir?
+
+Queremos que el sistema aprenda:
+
+"Basado en ejecuciones anteriores,
+¿qué test tiene mayor probabilidad de fallar?"
+Variables útiles
+Variable	Ejemplo
+duración	12 segundos
+browser	Chrome
+feature	checkout
+fallos previos	5
+retries	2
+hora ejecución	nightly
+Dataset ejemplo
+test	duration	browser	previous_failures	failed
+login	3	chrome	0	0
+checkout	15	firefox	4	1
+payment	20	chrome	5	1
+Modelo simple
+from sklearn.ensemble import RandomForestClassifier
+
+El modelo aprende patrones como:
+
+"Tests largos + muchos fallos previos
+= más probabilidad de fallar"
+Resultado esperado
+checkout_test → 78% riesgo
+payment_test → 91% riesgo
+login_test → 5% riesgo
+16. ¿Por qué esto es valioso?
+
+Porque pasas de:
+
+"solo ejecutar tests"
+
+a:
+
+"analizar inteligencia de calidad"
+
+Eso tiene muchísimo valor en:
+
+QA moderno
+SRE
+observabilidad
+plataformas CI/CD
+17. Cómo reutilizar esta arquitectura
+
+La clave es separar:
+
+Framework QA
+cypress/
+Analytics
+analysis/
+Reporting
+reports/
+Así puedes reutilizarlo en:
+Playwright
+Selenium
+APIs
+mobile testing
+performance testing
+
+Solo cambias:
+
+fuente de resultados
+parser JSON
+18. Ideas para destacar en GitHub
+Dashboard QA Intelligence
+
+Con:
+
+gráficos
+métricas
+flaky analysis
+risk prediction
