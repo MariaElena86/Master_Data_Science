@@ -95,7 +95,7 @@ df[(df['A'] > 50) & (df['B'] < 20)]
 ````
 
 ## Limpieza y Transformación
-- Gestión de valores nulos: 
+### 1- Gestión de valores nulos: 
 Identificación y tratamiento de datos faltantes mediante .isnull(), .dropna() o .fillna().
 ````python
 #Identificar valores nulos
@@ -107,7 +107,7 @@ df["Edad"] = df["Edad"].fillna(df["Edad"].mean())
 df["Salario"] = df["Salario"].fillna(0)#rellena con 0
 ````
 
-## - Crear nuevas columnas:
+### 2- Crear nuevas columnas:
 Cómo realizar operaciones aritméticas entre columnas existentes para generar nuevos indicadores.
 ````python
 # Crear nueva columna con el total de ventas
@@ -116,7 +116,7 @@ df["Total_Venta"] = df["Precio"] * df["Cantidad"]
 # Crear columna con impuesto
 df["Impuesto"] = df["Total_Venta"] * 0.21
 ````
-## - Agrupar Columnas: (Grouping): 
+### 3- Agrupar Columnas: (GroupBy): 
 Uso de .groupby() junto con funciones de agregación (sum, mean, count) para realizar análisis segmentados.
 ````python
 # Agrupar por departamento y calcular métricas
