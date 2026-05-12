@@ -107,7 +107,7 @@ df["Edad"] = df["Edad"].fillna(df["Edad"].mean())
 df["Salario"] = df["Salario"].fillna(0)#rellena con 0
 ````
 
-- Creación de nuevas columnas:
+## - Crear nuevas columnas:
 Cómo realizar operaciones aritméticas entre columnas existentes para generar nuevos indicadores.
 ````python
 # Crear nueva columna con el total de ventas
@@ -116,7 +116,7 @@ df["Total_Venta"] = df["Precio"] * df["Cantidad"]
 # Crear columna con impuesto
 df["Impuesto"] = df["Total_Venta"] * 0.21
 ````
-- Agrupamiento (Grouping): 
+## - Agrupar Columnas: (Grouping): 
 Uso de .groupby() junto con funciones de agregación (sum, mean, count) para realizar análisis segmentados.
 ````python
 # Agrupar por departamento y calcular métricas
