@@ -12,16 +12,23 @@ np.random.seed(42)# esa configuracion es para que siempre genere los mismos dato
 ````
 ## Estructuras de Datos Fundamentales
 ### Series: 
-- Se explican como arreglos unidimensionales similares a una columna en una tabla o una lista de Python con etiquetas (índices).
-- Resumen: es una columna con índices.
+- Se explican como arreglos unidimensionales similares a una columna en una tabla o una lista de Python con etiquetas (índices). Es una columna con índices.
+
+### Crear Series
 ````python
-#Crear una serie
-s = pd.Series([10,20,30], index=['a','b','c'])
-#Acceder a los valores
-s['b']
+# Crear Serie a partir de una lista
+list = [10,20,30]
+s_list = pd.Series(list, index=['a','b','c'])
+
+# Acceder a los valores
+s_list['b'] # print 20
 #Propiedades importantes
-s.index
-s.values
+s_list.index # print ['a','b','c']
+s_list.values # print [10,20,30]
+
+# Crear Serie a partir de un diccionario
+data_dict = {'Apple': 100, 'Banana': 200, 'Cherry': 150}
+s_dict = pd.Series(data_dict) # aqui el index la clave del diccionario
 ````
 
 ### DataFrames:
