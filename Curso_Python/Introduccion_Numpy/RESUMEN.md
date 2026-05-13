@@ -1,16 +1,34 @@
 # NumPy:
 - Es la librería en Python fundamental para el cálculo numérico.
 - Su estructura principal es el ndarray, un array multidimensional mucho más rápido y eficiente que las listas normales de Python.
-# ndarray:
+- Hay que importar la libreria (import numpy as np)
+### ndarray:
 - Se introduce el array multidimensional (ndarray), que a diferencia de las listas de Python, contiene elementos de un solo tipo de dato para permitir cálculos ultrarrápidos.
 
-# Creación de arrays para generar estructuras de datos desde cero: 
+## Crear tipos de ndarray 
 ````python
-np.array()
-np.zeros()
-np.ones()
-np.arange()
-np.linspace()
+np.array() # Convierte listas en arreglos (arrays).
+a = np.array([1, 2, 3, 4])
+print(a) # [1 2 3 4]
+
+np.zeros() # Crea un array lleno de ceros
+z = np.zeros(5) # Con una sola dimencion
+print(z) # [0. 0. 0. 0. 0.]
+z2 = np.zeros((2, 3)) # Con dos dimenciones
+print(z2) # [[0. 0. 0.] [0. 0. 0.]]
+
+np.ones() # Crea un array lleno de unos, lo mismo que .zero() pero con 1
+
+np.arange() # Crea una secuencia de números (como range, pero con NumPy)
+r = np.arange(0, 10, 2) # (inicio, fin, paso)
+print(r) # [0 2 4 6 8]
+
+np.linspace() # Crea números equidistantes entre dos valores.
+l = np.linspace(0, 10, 5) # (inicio, fin, cantidad de puntos)
+print(l) # [ 0.   2.5  5.   7.5 10. ]
+
+👉 .arange() = “cada cuánto salto”
+👉 .linspace() = “cuántos puntos quiero”
 ````
 # Atributos y Propiedades
 ````python
