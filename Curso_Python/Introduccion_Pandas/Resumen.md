@@ -87,10 +87,12 @@ df.describe()
 df['A']
 # Seleccionar varias columnas
 df[['A','B']]
-# Seleccionar por nombres con .loc() (basado en etiquetas)
-df.loc[0:5, ['A','D']]
-# Seleccionar por indices con .iloc() (basado en posiciones enteras)
-df.iloc[0:5, 0:3]
+
+# .loc[] → selecciona por nombres (etiquetas)
+# .iloc[] → selecciona por posiciones (índices numéricos)
+
+df.loc[0:5, ['A','D']] # Seleccionar por nombres con .loc() (basado en etiquetas)
+df.iloc[0:5, 0:3] # Seleccionar por indices con .iloc() (basado en posiciones enteras)
 ````
 
 - Filtrado condicional: 
