@@ -111,7 +111,7 @@ print(resultado)
 ````
 
 
-### Suma, Resta y Multiplicación
+### Suma, Resta y Multiplicación utilizando vectorizacion
  ````python
 import numpy as np
 
