@@ -10,8 +10,8 @@ from IPython.display import display
 
 np.random.seed(42)# esa configuracion es para que siempre genere los mismos datos cuando se cree un np.array()
 ````
-## Estructuras de Datos Fundamentales
-### Series: 
+# Estructuras de Datos Fundamentales
+## Series: 
 - Se explican como arreglos unidimensionales similares a una columna en una tabla o una lista de Python con etiquetas (índices). Es una columna con índices.
 
 ### Crear Series
@@ -31,7 +31,7 @@ data_dict = {'Apple': 100, 'Banana': 200, 'Cherry': 150}
 s_dict = pd.Series(data_dict) # aqui el index la clave del diccionario
 ````
 
-### DataFrames:
+## DataFrames:
 - Se definen como estructuras bidimensionales (tablas) que contienen múltiples Series compartiendo un mismo índice.
 - Resumen: es una tabla con filas y columnas.
 ````python
@@ -45,7 +45,7 @@ df = pd.DataFrame({
 df.shape
 ````
 
-### Diferencia entre Dataset y DataFrame:
+## Diferencia entre Dataset y DataFrame:
 - Dataset: es la materia prima (el libro), Se refiere a la colección de datos(ejmplo .csv)
 - DataFrame: es la mesa de trabajo donde lo abres para leerlo, subrayarlo y analizarlo (el objeto en Python). Es una estructura de datos específica dentro de un lenguaje de programación.
 
