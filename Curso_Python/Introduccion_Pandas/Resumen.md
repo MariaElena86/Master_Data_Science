@@ -2,7 +2,14 @@
 - Es la librería fundamental de Python para la manipulación y el análisis de datos estructurados. 
 - Permite trabajar con datos como si fueran tablas de Excel.
 - El objetivo es aprender a transformar datos en crudo en información útil para la toma de decisiones.
+````python
+# Importar las librerias
+import pandas as pd
+import numpy as np
+from IPython.display import display
 
+np.random.seed(42)# esa configuracion es para que siempre genere los mismos datos cuando se cree un np.array()
+````
 ## Estructuras de Datos Fundamentales
 ### Series: 
 - Se explican como arreglos unidimensionales similares a una columna en una tabla o una lista de Python con etiquetas (índices).
