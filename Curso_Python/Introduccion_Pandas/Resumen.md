@@ -34,38 +34,37 @@ s_dict = pd.Series(data_dict) # aqui el index la clave del diccionario
 ## DataFrames:
 - Se definen como estructuras bidimensionales (tablas) que contienen múltiples Series compartiendo un mismo índice.
 - Resumen: es una tabla con filas y columnas.
+### Operaciones y Manipulación de Datos
 ````python
-
-#Crear un DataFrame
-df = pd.DataFrame({
+# Crear el data frame desde un dataset local
+dataset = {
     'Name':['Ana','Luis'],
     'Age':[20,30]
-})
+}
+df = pd.DataFrame(dataset)
+
+# Crear dataframe desde un fichero externo(csv, excel, json,etc)
+# Cargar desde un fichero CSV
+pd.read_csv("archivo.csv")
+# Cargar desde un fichero JSON
+pd.read_json("archivo.json")
+
+#Cargar desde un fichero Excel:
+#Se necesita instalar esta libreria pip install openpyxl
+pd.read_excel("archivo.xlsx")
+
+# Guardar los datos del dataframe a un fichero CSV
+df.to_csv("resultado.csv")
+
 #Ver dimensiones(filas → shape[0], columnas → shape[1])
 df.shape
 ````
-
-## Diferencia entre Dataset y DataFrame:
+#### Nota:
+Diferencia entre Dataset y DataFrame:
 - Dataset: es la materia prima (el libro), Se refiere a la colección de datos(ejmplo .csv)
 - DataFrame: es la mesa de trabajo donde lo abres para leerlo, subrayarlo y analizarlo (el objeto en Python). Es una estructura de datos específica dentro de un lenguaje de programación.
 
-
-## Operaciones y Manipulación de Datos
-### Leer y guardar archivos: 
-- Carga y Exploración Inicial
-````python
-#Leer CSV
-pd.read_csv("archivo.csv")
-#Leer JSON
-pd.read_json("archivo.json")
-#Leer Excel: se necesita instalar esta libreria pip install openpyxl
-pd.read_excel("archivo.xlsx") 
-# Guardar CSV
-df.to_csv("resultado.csv")
-````
-
-
-- Métodos de inspección rápida para entender la composición y estadísticas básicas del dataset:
+### Métodos de inspección rápida para entender la composición y estadísticas básicas del dataset:
 ````python
 df = pd.DataFrame({
     'Name':['Ana','Luis'],
