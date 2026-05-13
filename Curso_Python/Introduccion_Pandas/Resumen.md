@@ -99,14 +99,14 @@ df[['A','B']]
 # .loc[] → selecciona por nombres (etiquetas), .loc INCLUYE el último valor
 # .iloc[] → selecciona por posiciones (índices numéricos) .iloc NO INCLUYE el último valor
 
-df.loc[0:5, ['A','D']] # “Dame las filas de la 0 a la 5 y las columnas A y D”
+df.loc[0:2, ['A','D']] # “Dame las filas de la 0 a la 5 y las columnas A y D”
 # print
    A   D
 0  1   4
 1  5   8
 2  9  12
 
-df.iloc[0:5, 0:3] # “Dame las filas desde la posición 0 hasta 4 y las columnas desde posición 0 hasta 2”
+df.iloc[0:2, 0:3] # “Dame las filas desde la posición 0 hasta 4 y las columnas desde posición 0 hasta 2”
 # print()
    A   B
 0  1   2
