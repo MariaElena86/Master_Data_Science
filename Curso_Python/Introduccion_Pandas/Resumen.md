@@ -83,16 +83,34 @@ df.describe()
 ## Selección y Filtrado
 - Selección de Datos
 ````python
+df =   A   B   C   D
+    0  1   2   3   4
+    1  5   6   7   8
+    2  9  10  11  12
+    3 13  14  15  16
+    4 17  18  19  20
+    5 21  22  23  24
+
 # Seleccionar una columna
 df['A']
 # Seleccionar varias columnas
 df[['A','B']]
 
-# .loc[] → selecciona por nombres (etiquetas)
-# .iloc[] → selecciona por posiciones (índices numéricos)
+# .loc[] → selecciona por nombres (etiquetas), .loc INCLUYE el último valor
+# .iloc[] → selecciona por posiciones (índices numéricos) .iloc NO INCLUYE el último valor
 
-df.loc[0:5, ['A','D']] # Seleccionar por nombres con .loc() (basado en etiquetas)
-df.iloc[0:5, 0:3] # Seleccionar por indices con .iloc() (basado en posiciones enteras)
+df.loc[0:5, ['A','D']] # “Dame las filas de la 0 a la 5 y las columnas A y D”
+# print
+   A   D
+0  1   4
+1  5   8
+2  9  12
+
+df.iloc[0:5, 0:3] # “Dame las filas desde la posición 0 hasta 4 y las columnas desde posición 0 hasta 2”
+# print()
+   A   B
+0  1   2
+1  5   6
 ````
 
 - Filtrado condicional: 
