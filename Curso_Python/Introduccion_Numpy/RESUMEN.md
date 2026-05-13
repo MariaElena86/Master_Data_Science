@@ -92,8 +92,25 @@ print(matriz_nueva)
  ````
 
 # Operaciones Matemáticas y Vectorización
+### Vectorización
+- La vectorización significa aplicar operaciones sobre arrays completos de manera eficiente y rápida.
 - Una de las mayores ventajas de NumPy es que permite trabajar con arrays completos sin usar bucles for.
-- Las operaciones se aplican posición por posición.
+- #### Sin vectorización (más lento)
+````python
+lista = [1, 2, 3, 4]
+resultado = []
+for x in lista:
+    resultado.append(x * 2)
+print(resultado)
+````
+- #### Con vectorización (NumPy)
+````python
+arr = np.array([1, 2, 3, 4])
+resultado = arr * 2
+print(resultado)
+````
+
+
 ### Suma, Resta y Multiplicación
  ````python
 import numpy as np
@@ -115,22 +132,7 @@ print(a / b) # Resultado: [0.25 0.4  0.5 ]
 # Potencia
 print(a ** 2) # Resultado: [1 4 9]
  ````
-### Vectorización
-- La vectorización significa aplicar operaciones sobre arrays completos de manera eficiente y rápida.
-- #### Sin vectorización (más lento)
-````python
-lista = [1, 2, 3, 4]
-resultado = []
-for x in lista:
-    resultado.append(x * 2)
-print(resultado)
-````
-- #### Con vectorización (NumPy)
-````python
-arr = np.array([1, 2, 3, 4])
-resultado = arr * 2
-print(resultado)
-````
+
 
 # Funciones de Agregación:
 - Métodos para obtener estadísticas rápidas como np.mean(), np.sum(), np.min(), np.max() y la desviación estándar.
