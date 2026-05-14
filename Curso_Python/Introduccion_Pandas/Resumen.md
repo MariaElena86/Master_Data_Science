@@ -168,14 +168,14 @@ df =  Nombre   Edad   Salario
     2  Marta    30     NaN
     3  Juan     NaN    NaN
 
-# df.isnull() 👉 Identificar valores nulos
+# df.isna() 👉 Identificar valores nulos
 # Devuelve una tabla de True(si hay valor nulo) / False(no hay null, el datos es correcto)
        Nombre   Edad   Salario
     0  False    False  False
     1  False    True   False
     2  False    False  True
     3  False    True   True
-
+df.isna().sum() # retorna el total 4
 # .dropna() 👉 Elimina filas completas que tengan algún valor NaN
 # OJO: Es agresivo: puedes perder muchos datos. Úsalo solo si tienes muchos datos
 df_sin_nulos = df.dropna()
