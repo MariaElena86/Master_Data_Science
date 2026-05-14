@@ -153,8 +153,7 @@ df =  Nombre   Edad   Salario
     2  Marta    30     NaN
     3  Juan     NaN    NaN
 
-# .isnull() 👉 Identificar valores nulos
-df.isnull()
+# df.isnull() 👉 Identificar valores nulos
 # Devuelve una tabla de True(si hay valor nulo) / False(no hay null, el datos es correcto)
        Nombre   Edad   Salario
     0  False    False  False
@@ -169,7 +168,7 @@ df_sin_nulos = df.dropna()
  df_sin_nulos = Nombre   Edad   Salario
               0  Ana      25     2000  
 
-# .fillna() 👉 Rellenar o sustituir valores nulos
+# .fillna() 👉 Rellenar valores NaN
 👉 Rellenar utilizando un valor
    df["Salario"] = df["Salario"].fillna(0) # rellena los valores Nan de la columna salario con 0
  # print
