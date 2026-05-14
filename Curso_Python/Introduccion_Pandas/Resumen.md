@@ -223,13 +223,41 @@ df =  Precio   Cantidad  Total_Venta
 ````
 ### Agrupar Columnas: (GroupBy): 
 Uso de .groupby() junto con funciones de agregación (sum, mean, count) para realizar análisis segmentados.
+👉 Agrupar datos por una categoría y luego hacer cálculos sobre cada grupo.
+Es como decir:
+    - “agrúpame los empleados por departamento”
+    - “y luego calcula cosas dentro de cada grupo”
+
 ````python
-# Agrupar por departamento y calcular métricas
+df =   Nombre   Departamento   Salario
+    0  Ana      Ventas         2000
+    1  Luis     IT             3000
+    2  Marta    Ventas         2500
+    3  Juan     IT             3500
+    4  Pedro    Ventas         2200
+
 resumen = df.groupby("Departamento")["Salario"].agg([
     "sum",
     "mean",
     "count"
-])
+])# groupby("Departamento") 👉 Agrupa las filas por departamento(“Ventas”, “IT”)
+
+👉 Aplicar funciones al goupby()
+df.groupby("Departamento")["Salario"].sum() # calcula la suma de todos los salarios
+df.groupby("Departamento")["Salario"].mean() # calcula la media de todos los salarios
+# print
+Departamento
+IT           3250.0
+Ventas       2250.0
+Name: Salario, dtype: float64 
+
+👉 .agg() - Aplicar varias funciones al goupby() 
+df.groupby("Departamento")["Salario"].agg(["sum", "mean", "count"])
+# print
+               sum   mean   count
+Departamento
+IT             9000  4500    2
+Ventas         5000  2500    2
 ````
 
 
