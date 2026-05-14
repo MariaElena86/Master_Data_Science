@@ -217,7 +217,7 @@ df.drop_duplicates(subset=["ID"])
 df.drop_duplicates(inplace=True)
 
 ````
-### Eliminar Valores: 
+### Eliminar Valores Nulos NaN: 
 ````python
 # .dropna() 👉 Elimina filas completas que tengan algún valor NaN
 # OJO: Es agresivo: puedes perder muchos datos. Úsalo solo si tienes muchos datos
@@ -246,6 +246,22 @@ df =  Nombre   Edad   Salario
     1  Luis     27.5   2500
     2  Marta    30     27.5
     3  Juan     27.5   27.5
+````
+### Eliminar valores de Texto con .str
+👉 .str permite aplicar funciones de texto a una columna completa
+````python
+df = pd.DataFrame({
+    "nombre": [" Ana ", "LUIS", "marta"],
+    "email": ["ana@gmail.com", "luis@empresa.com", "marta@yahoo.com"]
+})
+# .str.strip() 👉 Elimina espacios al inicio y al final
+df["nombre"] = df["nombre"].str.strip() 
+
+# .str.lower() 👉 Convierte todo en minúsculas
+df["nombre"] = df["nombre"].str.lower()
+
+# .str.title() 👉 Convierte la primera letra en mayúscula
+df["nombre"] = df["nombre"].str.title()
 ````
 ### Crear nuevas columnas:
 👉 Añadir una columna nueva al DataFrame usando cálculos con otras columnas
