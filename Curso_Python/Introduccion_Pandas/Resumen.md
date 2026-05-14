@@ -147,13 +147,48 @@ df[(df['A'] > 50) & (df['B'] < 20)] # Dame las 👉 “Filas donde A > 50 Y B < 
 ### 1- Gestión de valores nulos: 
 Identificación y tratamiento de datos faltantes mediante .isnull(), .dropna() o .fillna().
 ````python
-#Identificar valores nulos
+df =  Nombre   Edad   Salario
+    0  Ana      25     2000
+    1  Luis     NaN    2500
+    2  Marta    30     NaN
+    3  Juan     NaN    NaN
+
+# .isnull() 👉 Identificar valores nulos
 df.isnull()
-# Eliminar filas con valores nulos
+# Devuelve una tabla de True(si hay valor nulo) / False(no hay null, el datos es correcto)
+       Nombre   Edad   Salario
+    0  False    False  False
+    1  False    True   False
+    2  False    False  True
+    3  False    True   True
+
+# .dropna() 👉 Elimina filas completas que tengan algún valor NaN
+# OJO: Es agresivo: puedes perder muchos datos. Úsalo solo si tienes muchos datos
 df_sin_nulos = df.dropna()
-# Rellenar valores nulos
-df["Edad"] = df["Edad"].fillna(df["Edad"].mean())
-df["Salario"] = df["Salario"].fillna(0)#rellena con 0
+# print
+ df_sin_nulos = Nombre   Edad   Salario
+              0  Ana      25     2000  
+
+# .fillna() 👉 Rellenar o sustituir valores nulos
+👉 Rellenar utilizando un valor
+   df["Salario"] = df["Salario"].fillna(0) # rellena los valores Nan de la columna salario con 0
+ # print
+df =  Nombre   Edad   Salario
+    0  Ana      25     2000
+    1  Luis     0      2500
+    2  Marta    30     0
+    3  Juan     0      0
+
+👉 Rellenar utilizando una condicion
+condicion = df["Edad"].mean() # Calcula la media de Edad (sin contar NaN)
+df["Edad"] = df["Edad"].fillna(condicion)  # Rellena los NaN de la columna Edad con ese valor de la media
+# print
+media_edad = (25+30)/2 = 27.5
+df =  Nombre   Edad   Salario
+    0  Ana      25     2000
+    1  Luis     27.5   2500
+    2  Marta    30     27.5
+    3  Juan     27.5   27.5
 ````
 
 ### 2- Crear nuevas columnas:
