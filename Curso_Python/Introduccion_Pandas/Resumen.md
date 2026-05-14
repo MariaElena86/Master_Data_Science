@@ -247,7 +247,7 @@ df =  Nombre   Edad   Salario
     2  Marta    30     27.5
     3  Juan     27.5   27.5
 ````
-### Eliminar valores de Texto con .str
+## Modificar valores de Texto con .str
 👉 .str permite aplicar funciones de texto a una columna completa
 ````python
 df = pd.DataFrame({
@@ -262,6 +262,12 @@ df["nombre"] = df["nombre"].str.lower()
 
 # .str.title() 👉 Convierte la primera letra en mayúscula
 df["nombre"] = df["nombre"].str.title()
+
+# .str.replace() 👉 Sustituye texto dentro de la columna
+df["email"] = df["email"].str.replace("gmail.com", "gmail.es")
+
+# .str.split("@") 👉 Divide el texto por un valor y se queda con una parte
+df["dominio"] = df["email"].str.split("@").str[1]
 ````
 ### Crear nuevas columnas:
 👉 Añadir una columna nueva al DataFrame usando cálculos con otras columnas
