@@ -144,7 +144,6 @@ df[(df['A'] > 50) & (df['B'] < 20)] # Dame las 👉 “Filas donde A > 50 Y B < 
 ````
 
 ## Ordenar datos
-
 ````python
 # Ascendente
 df.sort_values(by='A')
@@ -160,14 +159,15 @@ df.sort_values(
 ````
 
 ## Limpieza y Transformación
-### Gestión de valores nulos: 
 ````python
 df =  Nombre   Edad   Salario
     0  Ana      25     2000
     1  Luis     NaN    2500
     2  Marta    30     NaN
     3  Juan     NaN    NaN
-
+````
+### Gestión de valores nulos: 
+````python
 # df.isna() 👉 Identificar valores nulos
 # Devuelve una tabla de True(si hay valor nulo) / False(no hay null, el datos es correcto)
        Nombre   Edad   Salario
@@ -176,6 +176,49 @@ df =  Nombre   Edad   Salario
     2  False    False  True
     3  False    True   True
 df.isna().sum() # retorna el total 4
+````
+### Gestión de valores duplicados: 
+👉 df.duplicated(): Recorre el DataFrame y marca con True cada fila que es una copia de una anterior y con False las que son únicas por primera vez.
+El resultado es una "máscara" de valores booleanos.
+👉 df.duplicated().sum(): En Python, True vale 1 y False vale 0. Al sumar la serie, obtienes el total de filas duplicadas.
+
+#### Limpiar Valores duplicados drop_duplicates:
+👉 df.drop_duplicates() (La Acción) Este comando devuelve un nuevo DataFrame (una tabla), con los valores duplicados eliminados.
+👉 Hay dos casos muy típicos:
+  - duplicados exactos
+  - duplicados por clave
+    
+````python
+# Duplicados exactos (Filas espejo)
+# Lógica: Pandas compara cada valor de la fila.
+# Si todos coinciden, elimina las repeticiones y deja solo una instancia.
+df =   A  B
+    0  1  3
+    1  1  3
+    2  2  4
+df2 = df.drop_duplicates()
+# print
+       A  B
+    0  1  3
+    2  2  4
+
+# Duplicados por clave (Lógica de Negocio)
+
+# subset: (subset=["ID"]) sirve para decir qué columnas usar para detectar duplicados
+df.drop_duplicates(subset=["ID"])
+
+# keep: drop_duplicates(subset=["ID"], keep="last")
+# Decide cuál conservar
+# - "first"	mantiene el primero
+# - "last"	mantiene el último
+# - False	elimina todos
+
+# inplace:Modifica el DataFrame original, No necesitas asignar a otra variable.
+df.drop_duplicates(inplace=True)
+
+````
+### Eliminar Valores: 
+````python
 # .dropna() 👉 Elimina filas completas que tengan algún valor NaN
 # OJO: Es agresivo: puedes perder muchos datos. Úsalo solo si tienes muchos datos
 df_sin_nulos = df.dropna()
