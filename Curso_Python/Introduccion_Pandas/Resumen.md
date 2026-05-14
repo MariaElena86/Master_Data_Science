@@ -143,9 +143,24 @@ df[(df['A'] > 50) & (df['B'] < 20)] # Dame las 👉 “Filas donde A > 50 Y B < 
 3  80 10
 ````
 
+## Ordenar datos
+
+````python
+# Ascendente
+df.sort_values(by='A')
+
+# Descendente
+df.sort_values(by='A', ascending=False)
+
+# Varias columnas
+df.sort_values(
+    by=['A','B'],
+    ascending=[False, True]
+)
+````
+
 ## Limpieza y Transformación
-### 1- Gestión de valores nulos: 
-Identificación y tratamiento de datos faltantes mediante .isnull(), .dropna() o .fillna().
+### Gestión de valores nulos: 
 ````python
 df =  Nombre   Edad   Salario
     0  Ana      25     2000
@@ -189,17 +204,24 @@ df =  Nombre   Edad   Salario
     2  Marta    30     27.5
     3  Juan     27.5   27.5
 ````
-
-### 2- Crear nuevas columnas:
-Cómo realizar operaciones aritméticas entre columnas existentes para generar nuevos indicadores.
+### Crear nuevas columnas:
+👉 Añadir una columna nueva al DataFrame usando cálculos con otras columnas
 ````python
-# Crear nueva columna con el total de ventas
-df["Total_Venta"] = df["Precio"] * df["Cantidad"]
+df =  Precio   Cantidad
+    0   10         2
+    1   20         1
+    2   5          4
 
-# Crear columna con impuesto
-df["Impuesto"] = df["Total_Venta"] * 0.21
+# Crear nueva columna
+df["Total_Venta"] = df["Precio"] * df["Cantidad"]
+# Rellena los valores de la columna con el total de ventas
+df =  Precio   Cantidad  Total_Venta
+    0   10         2        20
+    1   20         1        20
+    2   5          4        20
+
 ````
-### 3- Agrupar Columnas: (GroupBy): 
+### Agrupar Columnas: (GroupBy): 
 Uso de .groupby() junto con funciones de agregación (sum, mean, count) para realizar análisis segmentados.
 ````python
 # Agrupar por departamento y calcular métricas
@@ -210,21 +232,6 @@ resumen = df.groupby("Departamento")["Salario"].agg([
 ])
 ````
 
-## Ordenar datos
-
-````python
-# Ascendente
-df.sort_values(by='A')
-
-# Descendente
-df.sort_values(by='A', ascending=False)
-
-# Varias columnas
-df.sort_values(
-    by=['A','B'],
-    ascending=[False, True]
-)
-````
 
 
 
