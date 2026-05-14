@@ -114,16 +114,33 @@ df.iloc[0:2, 0:3] # “Dame las filas desde la posición 0 hasta 4 y las columna
 1  5   6
 ````
 ## Filtrar datos
-Técnicas para extraer subconjuntos de datos que cumplen criterios específicos.
-Ejemplo: filtrar filas donde una columna sea mayor a cierto valor.
+- Filtrar: significa👉 quedarte solo con las filas que cumplen una condición.
+- 👉 Luego Pandas usa eso como filtro:
+True → se queda
+False → se elimina
+- Se usan comparaciones (>, <, ==) y Se combinan con los operadores &(AND), |(OR), ~(NOT)
 
 ````python
-# Operadores: &(AND) ~(NOT)
-
+df =   A   B
+    0  10  5
+    1  60 15
+    2  30 25
+    3  80 10
 # Condicion simple
-df[df['A'] > 50]
+df[df['A'] > 50] # 👉 “Dame las filas donde df['A'] sea mayor que 50”
+# Como funciona: al aplicar esta condicion df['A'] > 50 en cada celda
+# resulta en [False, True, False, True]
+# y retorna solo los True
+   A   B
+1  60 15
+3  80 10
+
 # Varias condiciones
-df[(df['A'] > 50) & (df['B'] < 20)]
+df[(df['A'] > 50) & (df['B'] < 20)] # Dame las 👉 “Filas donde A > 50 Y B < 20”
+# retorna
+   A   B
+1  60 15
+3  80 10
 ````
 
 ## Limpieza y Transformación
