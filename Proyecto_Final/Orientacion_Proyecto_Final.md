@@ -54,49 +54,51 @@ data/processed/
 - Descomprimir y entrar en la carpeta del proyecto: cd project_demo
 - Inicializar Git: git init
 - Crear y activar entorno virtual:
-Windows (PowerShell):python -m venv .venv
-.venv\Scripts\activate
-macOS / Linux:python3 -m venv .venv
-source .venv/bin/activate
-Instalar dependencias:
-pip install -r requirements.txt
-Actualizar dependencias si añades paquetes:
-pip freeze > requirements.txt
-(Opcional) usar .venv como kernel:
-pip install ipykernel
-python -m ipykernel install --user --name=project_demo_venv --display-name "Python (.venv)"
-(Opcional) Ejecutar pipeline reproducible:
-python main.py
-Abrir el notebook:
+  - Windows (PowerShell):python -m venv .venv
+  .venv\Scripts\activate
+  - macOS / Linux:python3 -m venv .venv
+  source .venv/bin/activate
+- Instalar dependencias: pip install -r requirements.txt
+- Actualizar dependencias si añades paquetes:
+  pip freeze > requirements.txt
+  (Opcional) usar .venv como kernel:
+  pip install ipykernel
+  python -m ipykernel install --user --name=project_demo_venv --display-name "Python (.venv)"
+  (Opcional) Ejecutar pipeline reproducible:
+  python main.py
+- Abrir el notebook:
 jupyter notebook notebooks/eda.ipynb
 
-Antes de entregar (revisa)
-notebooks/eda.ipynb corre de principio a fin con tu CSV (rutas relativas)
-src/ tiene al menos 3 funciones reales (ej: load_csv, clean, build_features, plot_*)
-README.md completado (objetivo, link dataset, preguntas, pipeline, hallazgos)
-requirements.txt contiene todas las dependencias necesarias
-data/raw/mi_dataset.csv incluido o documentado en el README
-data/processed/ outputs opcionales (recomendado en .gitignore)
+# Antes de entregar (Revisar)
+- notebooks/eda.ipynb corre de principio a fin con tu CSV (rutas relativas)
+- src/ tiene al menos 3 funciones reales (ej: load_csv, clean, build_features, plot_*)
+- README.md completado (objetivo, link dataset, preguntas, pipeline, hallazgos)
+- requirements.txt contiene todas las dependencias necesarias
+- data/raw/mi_dataset.csv incluido o documentado en el README
+- data/processed/ outputs opcionales (recomendado en .gitignore)
 
-Checklist de entrega mínima
-README.md con objetivo, dataset, preguntas, pasos y conclusiones
+# Checklist de entrega mínima
+- README.md con objetivo, dataset, preguntas, pasos y conclusiones
 notebooks/eda.ipynb ejecutable (rutas relativas)
-src/ con al menos 3 funciones reales
-4–6 gráficos con intención y buena presentación (título, ejes, interpretación)
-3 conclusiones basadas en evidencia (referencia a gráfico/tabla)
-Cosas que suman nota
-Notebook orquestando + main.py ejecutable fuera del notebook
-Validaciones simples en src/utils.py (ej: assert_columns)
-Transformaciones no triviales (fechas robustas, normalización de categorías, outliers, pivots/agrupaciones)
-Tests básicos o scripts de comprobación rápida
-Guion orientativo para la presentación (4 minutos)
+- src/ con al menos 3 funciones reales
+- 4–6 gráficos con intención y buena presentación (título, ejes, interpretación)
+- 3 conclusiones basadas en evidencia (referencia a gráfico/tabla)
+
+## Cosas que suman nota
+- Notebook orquestando + main.py ejecutable fuera del notebook
+- Validaciones simples en src/utils.py (ej: assert_columns)
+- Transformaciones no triviales (fechas robustas, normalización de categorías, outliers, pivots/agrupaciones)
+- Tests básicos o scripts de comprobación rápida
+
+## Guion orientativo para la presentación (4 minutos)
 30s — Objetivo + dataset (link y por qué lo elegiste)
 90s — Limpieza/transformaciones clave (problemas y solución; 1–2 snippets de Pandas)
 90s — Visualizaciones (2–3) + lectura (2–3 insights)
 30s — Conclusiones + siguientes pasos
-Consejos prácticos
-Usa rutas relativas (data/raw/mi_dataset.csv)
-Evita rutas absolutas en el notebook
-Activa .venv antes de instalar/ejecutar
-Documenta cambios de columnas (rename/drop) con Markdown en el notebook
-Si el CSV es enorme, desarrolla con muestra y deja instrucciones en el README para ejecutar completo
+
+## Consejos prácticos
+- Usa rutas relativas (data/raw/mi_dataset.csv)
+- Evita rutas absolutas en el notebook
+- Activa .venv antes de instalar/ejecutar
+- Documenta cambios de columnas (rename/drop) con Markdown en el notebook
+- Si el CSV es enorme, desarrolla con muestra y deja instrucciones en el README para ejecutar completo
